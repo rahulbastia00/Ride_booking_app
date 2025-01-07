@@ -1,30 +1,28 @@
 import React from 'react'
 
-const LocationSearchPannel = () => {
+
+const LocationSearchPannel = (props) => {
+    console.log(props);
+  // smaple array for location 
+  const locations = [
+    "24B, Near Kapoore caffe hhrtmmb gh frg",
+    "24B, bastia caffe hhrtmmb gh frg"
+  ]
   return (
     <div>
       <h3>
         {/* location s here */}
-
-      </h3>
-      <div className='flex gap-4 items-center my-4 justify-start'>
-        <h2 className='bg-[#eee] h-8 w-12 flex items-center justify-center rounded-full'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-geo-alt-fill" viewBox="0 0 16 16">
-          <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
-        </svg></h2>
-        <h4 className='font-medium'>24B, Near Kapoore caffe</h4>
-      </div>
-      <div className='flex gap-4 items-center my-4 justify-start'>
-        <h2 className='bg-[#eee] h-8 w-12 flex items-center justify-center rounded-full'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-geo-alt-fill" viewBox="0 0 16 16">
-          <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
-        </svg></h2>
-        <h4 className='font-medium'>24B, Near Kapoore caffe</h4>
-      </div>
-      <div className='flex gap-4 items-center my-4 justify-start'>
-        <h2 className='bg-[#eee] h-8 w-12 flex items-center justify-center rounded-full'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-geo-alt-fill" viewBox="0 0 16 16">
-          <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
-        </svg></h2>
-        <h4 className='font-medium'>24B, Near Kapoore caffe</h4>
-      </div>
+        {
+          locations.map(function(elem) {
+            return <div onClick={() => {
+              props.setvechiclePanel(true)
+            }} className='flex gap-4 border-2 p-3 border-gray-100 active:border-black  rounded-xl my-2 items-center my-4 justify-start'>
+            <h2 className='bg-[#eee] h-8 w-12 flex items-center justify-center rounded-full'><i className='ri-map-pin-fill'></i></h2>
+            <h4 className='font-medium'>{elem}</h4>
+          </div>
+          })
+        }
+        </h3>
     </div>
   )
 }
